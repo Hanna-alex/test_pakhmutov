@@ -1,4 +1,12 @@
-@@include('./components/header.html') @@include('./components/breadcrumb.html')
-<main></main>
+<!DOCTYPE html>
+<html lang="ru">
+  @@include('./components/head.html')
 
-@@include('./components/footer.html')
+  <body>
+    @@include('./components/header.html')
+    @@include('./components/breadcrumb.html')
+    <main>@@include('./components/main-books_list.html')</main>
+
+    @@include('./components/footer.html')
+  </body>
+</html>
