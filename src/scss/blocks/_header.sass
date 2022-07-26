@@ -1,0 +1,57 @@
+.header
+  margin-top: 10px // для табов
+  padding: 1em 0
+  &__wrapper
+    display: flex
+    justify-content: space-evenly
+    min-height: 81px
+  &__logo
+    display: block
+    width: 340px
+    height: 81px
+  &__nav
+    display: flex
+    justify-content: center
+
+.search
+  display: flex
+  align-items: flex-end
+  &__wrapper
+    padding: 15px 0
+
+  &__input
+    width: 213px
+    border: 1px solid $darkgrey-color
+    outline: none
+    padding: 3px
+    &:focus
+      border-color: $hover-color
+  &__btn
+    padding: 5px
+    border: none
+    outline: none
+    background-color: transparent
+    cursor: pointer
+    color: inherit
+    &:hover
+      color: $hover-color
+
+.nav
+  padding: 11px
+  border-bottom: 1px solid $main-color
+  &__list
+    @include list
+  &__item
+    position: relative
+    padding: 0 7px
+    &:not(:last-child):after
+      content: '|'
+      display: block
+      position: absolute
+      top: 0
+      right: 0
+
+  &__link
+    @include link
+    &:hover
+      color: $hover-color
