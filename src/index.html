@@ -3,10 +3,13 @@
   @@include('./components/head.html')
 
   <body>
-    @@include('./components/header.html')
-    @@include('./components/breadcrumb.html')
-    <main>@@include('./components/main-books_list.html')</main>
+    <div class="wrapper">
+      @@include('./components/header.html')
+      @@include('./components/breadcrumb.html')
+      <main>@@include('./components/main-books_list.html')</main>
 
-    @@include('./components/footer.html')
+      @@include('./components/footer.html')
+    </div>
+    <!-- /.wrapper -->
   </body>
 </html>
