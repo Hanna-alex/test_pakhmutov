@@ -40,6 +40,10 @@ const paths = {
   fonts: {
     src: 'src/fonts/**',
     dest: 'dist/fonts'
+  },
+  db: {
+    src: 'src/db-books/**',
+    dest: 'dist/db-books'
   }
 
 }
@@ -121,6 +125,11 @@ function fonts() {
     .pipe(gulp.dest(paths.fonts.dest))
 }
 
+function db() {
+  return gulp.src(paths.db.src)
+    .pipe(gulp.dest(paths.db.dest))
+}
+
 // Отслеживание изменений в файлах и запуск лайв сервера
 function watch() {
   browsersync.init({
@@ -134,9 +143,10 @@ function watch() {
   gulp.watch(paths.scripts.src, scripts)
   gulp.watch(paths.images.src, img)
   gulp.watch(paths.fonts.src, fonts)
+  gulp.watch(paths.db.src, db)
 }
 
-const build = gulp.series(clean, html, gulp.parallel(styles, scripts, img, fonts), watch)
+const build = gulp.series(clean, html, gulp.parallel(styles, scripts, img, fonts, db), watch)
 
 
 exports.clean = clean
