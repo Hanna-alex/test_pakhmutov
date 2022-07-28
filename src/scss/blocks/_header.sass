@@ -1,6 +1,6 @@
 .header
   padding: 1em 0
-  background-color: #fff
+  background-color: $whate-color
   &__wrapper
     display: flex
     justify-content: space-evenly
@@ -14,7 +14,7 @@
     justify-content: center
     position: sticky
     top: 0
-    background-color: #fff
+    background-color: $whate-color
   &__menu
     display: none
 
@@ -23,7 +23,6 @@
   align-items: flex-end
   &__wrapper
     padding: 15px 0
-
   &__input
     width: 213px
     border: 1px solid $darkgrey-color
@@ -64,30 +63,63 @@
     &:hover
       color: $hover-color
 
-//стили для кнопки меню в моб. версии
+//стили для кнопки меню  моб. версия
 .menu-btn
+  position: relative
   border: none
+  width: 40px
+  height: 40px
   background-color: transparent
+  cursor: pointer
+  z-index: 101
+
   &__line
-    position: relative
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translateY(-50%)
     display: block
     width: 30px
     height: 2px
     background: $darkgrey-color
     opacity: 1
-    &::after
-      content: ''
-      display: block
+    transition: 1s
+    &--top
       width: 20px
       height: 2px
       background: $darkgrey-color
       position: absolute
-      top: 10px
-    &::before
-      content: ''
-      display: block
+      top: 0
+      left: 0
+      transition: 1s
+    &--bottom
       width: 40px
       height: 2px
       background: $darkgrey-color
       position: absolute
-      top: -10px
+      top: auto
+      left: 0
+      bottom: 0
+      transition: 1s
+
+// стили для меню моб версия
+.menu
+  display: none
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  background: $main-color
+  color: $whate-color
+  z-index: 100
+  &__wrapper
+    width: 96%
+    margin: auto
+  &__search
+    margin-bottom: 2em
+  &__list
+    @include list
+    flex-direction: column
+  &__link
+    padding: 7px

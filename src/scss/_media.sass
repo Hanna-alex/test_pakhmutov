@@ -11,19 +11,27 @@
       display: none
     &__menu
       display: block
-      padding: 3px
-      width: 50px
-      height: 50px
       &--active
+
         .menu-btn__line
           opacity: 0
-          ransition: 1s
-          &::after
+          transition: 1s
+          &--top
+            top: 50%
+            left: 0
             width: 40px
+            transform: translateY(-50%)
+            opacity: 1
             transform: rotate(45deg)
-          &::before
-            top: 10px
+            transition: 1s
+          &--bottom
+            width: 40px
+            top: 50%
+            left: 0
+            transform: translateY(-45%)
+            opacity: 1
             transform: rotate(-45deg)
+            transition: 1s
 
 @media screen and ( max-width: 480px )
   .header
