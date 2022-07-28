@@ -15,8 +15,9 @@
     position: sticky
     top: 0
     background-color: $whate-color
-  &__menu
+  &__menu-btn
     display: none
+    z-index: 102
 
 .search
   display: flex
@@ -57,7 +58,6 @@
       position: absolute
       top: 0
       right: 0
-
   &__link
     @include link
     &:hover
@@ -71,7 +71,6 @@
   height: 40px
   background-color: transparent
   cursor: pointer
-  z-index: 101
 
   &__line
     position: absolute
@@ -104,7 +103,6 @@
 
 // стили для меню моб версия
 .menu
-  display: none
   position: absolute
   top: 0
   right: 0
@@ -112,14 +110,54 @@
   bottom: 0
   background: $main-color
   color: $whate-color
-  z-index: 100
+  z-index: -100
+  opacity: 0
+  transition: 1s
   &__wrapper
+    display: flex
+    flex-direction: column
+    align-items: center
     width: 96%
     margin: auto
+    padding: 3em
   &__search
     margin-bottom: 2em
   &__list
     @include list
     flex-direction: column
+  &__item
+    margin-bottom: 2em
   &__link
     padding: 7px
+  &__btn-clouse
+    align-self: end
+    position: relative
+    border: none
+    width: 40px
+    height: 40px
+    background-color: transparent
+    cursor: pointer
+    margin-bottom: 1.5em
+    &--top
+      position: absolute
+      top: 45%
+      left: 0
+      width: 40px
+      height: 2px
+      background: $hover-color-light
+      opacity: 1
+      transform: rotate(45deg)
+    &--bottom
+      position: absolute
+      top: 45%
+      right: 0
+      width: 40px
+      height: 2px
+      background: $hover-color-light
+      opacity: 1
+      transform: rotate(-45deg)
+
+.menu-vizible
+  z-index: 100
+  opacity: 1
+  transition: 1s
