@@ -1,0 +1,34 @@
+@media screen and ( max-width: 767px )
+  .header
+    position: sticky
+    top: 0
+    &__wrapper
+      // justify-content: space-between
+      align-items: center
+    &__nav
+      display: none
+    &__search
+      display: none
+    &__menu
+      display: block
+      padding: 3px
+      width: 50px
+      height: 50px
+      &--active
+        .menu-btn__line
+          opacity: 0
+          ransition: 1s
+          &::after
+            width: 40px
+            transform: rotate(45deg)
+          &::before
+            top: 10px
+            transform: rotate(-45deg)
+
+@media screen and ( max-width: 480px )
+  .header
+    &__wrapper
+      justify-content: space-between
+    &__logo
+      width: 245px
+      height: 61px

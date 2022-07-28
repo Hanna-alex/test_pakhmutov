@@ -16,6 +16,7 @@ const fileinclude = require('gulp-file-include')
 const size = require('gulp-size')
 const browsersync = require('browser-sync').create()
 const del = require('del')
+const { src } = require('gulp')
 
 
 // Пути исходных файлов src и пути к результирующим файлам dest
@@ -36,6 +37,10 @@ const paths = {
     src: 'src/img/**',
     dest: 'dist/img',
   },
+  fonts: {
+    src: 'src/fonts/**',
+    dest: 'dist/fonts'
+  }
 
 }
 
@@ -111,6 +116,11 @@ function img() {
     .pipe(gulp.dest(paths.images.dest))
 }
 
+function fonts() {
+  return gulp.src(paths.fonts.src)
+    .pipe(gulp.dest(paths.fonts.dest))
+}
+
 // Отслеживание изменений в файлах и запуск лайв сервера
 function watch() {
   browsersync.init({
@@ -123,9 +133,10 @@ function watch() {
   gulp.watch(paths.style.src, styles)
   gulp.watch(paths.scripts.src, scripts)
   gulp.watch(paths.images.src, img)
+  gulp.watch(paths.fonts.src, fonts)
 }
 
-const build = gulp.series(clean, html, gulp.parallel(styles, scripts, img), watch)
+const build = gulp.series(clean, html, gulp.parallel(styles, scripts, img, fonts), watch)
 
 
 exports.clean = clean

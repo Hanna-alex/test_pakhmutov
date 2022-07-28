@@ -1,6 +1,6 @@
 .header
-  margin-top: 10px // для табов
   padding: 1em 0
+  background-color: #fff
   &__wrapper
     display: flex
     justify-content: space-evenly
@@ -12,6 +12,11 @@
   &__nav
     display: flex
     justify-content: center
+    position: sticky
+    top: 0
+    background-color: #fff
+  &__menu
+    display: none
 
 .search
   display: flex
@@ -36,11 +41,13 @@
     &:hover
       color: $hover-color
 
+//Стили для блока навигации
 .nav
-  padding: 11px
-  border-bottom: 1px solid $main-color
+  padding: 11px 0
   &__list
     @include list
+    border-bottom: 1px solid $main-color
+    justify-content: center
   &__item
     position: relative
     padding: 0 7px
@@ -55,3 +62,31 @@
     @include link
     &:hover
       color: $hover-color
+
+//стили для кнопки меню в моб. версии
+.menu-btn
+  border: none
+  background-color: transparent
+  &__line
+    position: relative
+    display: block
+    width: 30px
+    height: 2px
+    background: $darkgrey-color
+    opacity: 1
+    &::after
+      content: ''
+      display: block
+      width: 20px
+      height: 2px
+      background: $darkgrey-color
+      position: absolute
+      top: 10px
+    &::before
+      content: ''
+      display: block
+      width: 40px
+      height: 2px
+      background: $darkgrey-color
+      position: absolute
+      top: -10px
