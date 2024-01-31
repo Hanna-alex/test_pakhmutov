@@ -2,7 +2,7 @@
 #### https://hanna-alex.github.io/tz_books_page/
 
  - HTML
- - CSS
+ - CSS / SASS
  - JS
  - Gulp сборка
 
